@@ -1,0 +1,58 @@
+<ngx-spinner
+  bdColor="rgba(210,210,210,0.8)"
+  size="large"
+  color="#074758"
+  type="ball-clip-rotate-pulse"
+></ngx-spinner>
+
+<div class="satellites" *ngIf="dataLoaded">
+  <div class="satellites__details" *ngFor="let mission of dataWithoutFilters">
+    <figure class="gallery">
+      <div class="gallery__item">
+        <img
+          src="{{ mission.links.mission_patch_small }}"
+          class="gallery__item__pic"
+        />
+        {{
+          mission.links.mission_patch_small === null
+            ? "Image Not Available"
+            : null
+        }}
+      </div>
+      <figcaption class="gallery__description">
+        <p class="gallery__title">
+          {{ mission.mission_name }} &nbsp;#{{ mission.flight_number }}
+        </p>
+
+        <ul class="list">
+          <li class="list__item">
+            <strong class="list__item--title">Mission Ids:</strong>
+            <span class="list__item--value">{{
+              mission.mission_id.length > 0 ? mission.mission_id[0] : "N/A"
+            }}</span>
+          </li>
+          <li class="list__item">
+            <strong class="list__item--title">Launch Year:</strong>
+            <span class="list__item--value">{{ mission.launch_year }}</span>
+          </li>
+          <li class="list__item">
+            <strong class="list__item--title">Successful Launch:</strong>
+            <span class="list__item--value">{{
+              mission.launch_success != null ? mission.launch_success : "N/A"
+            }}</span>
+          </li>
+          <li class="list__item">
+            <strong class="list__item-title">Successful Landing:</strong>
+            <span class="list__item--value">
+              {{
+                mission.rocket.first_stage.cores[0].land_success != null
+                  ? mission.rocket.first_stage.cores[0].land_success
+                  : "N/A"
+              }}
+            </span>
+          </li>
+        </ul>
+      </figcaption>
+    </figure>
+  </div>
+</div>

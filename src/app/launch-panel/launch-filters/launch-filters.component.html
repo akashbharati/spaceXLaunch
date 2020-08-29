@@ -1,0 +1,46 @@
+<div class="filters">
+  <h2 class="filters__heading">Filters</h2>
+  <div class="filters__launch-year">
+    <h3 class="filters__launch-year--head">Launch Year</h3>
+    <div class="filters__launch-year--content">
+      <button
+        class="btn"
+        *ngFor="let year of launchYears"
+        [ngClass]="selectedButtonYear == year ? ' btn__highlighted' : ''"
+        (click)="onLaunchYearButtonClick(year)"
+      >
+        {{ year }}
+      </button>
+    </div>
+  </div>
+  <div class="filters__successful-launch">
+    <h3 class="filters__successful-launch--head">Successful Launch</h3>
+    <div class="filters__successful-launch--content">
+      <button
+        class="btn"
+        *ngFor="let isSuccessFul of successfulBoolean"
+        [ngClass]="
+          selectedLaunchButton == isSuccessFul ? ' btn__highlighted' : ''
+        "
+        (click)="onSuccessLaunchButtonClick(isSuccessFul)"
+      >
+        {{ isSuccessFul }}
+      </button>
+    </div>
+  </div>
+  <div class="filters__successful-landing">
+    <h3 class="filters__successful-landing--head">Successful Landing</h3>
+    <div class="filters__successful-landing--content">
+      <button
+        class="btn"
+        *ngFor="let isSuccessFul of successfulBoolean"
+        [ngClass]="
+          selectedLandingButton == isSuccessFul ? ' btn__highlighted' : ''
+        "
+        (click)="onSuccessLandingButtonClick(isSuccessFul)"
+      >
+        {{ isSuccessFul }}
+      </button>
+    </div>
+  </div>
+</div>

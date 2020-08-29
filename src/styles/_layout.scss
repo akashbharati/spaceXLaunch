@@ -1,0 +1,107 @@
+.container {
+  max-width: 100%;
+  margin: 0;
+  width: 100%;
+  box-shadow: var(--shadow-dark);
+  min-height: 50rem;
+  background-color: var(--color-primary);
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: $bp-tablet) {
+      flex-direction: row;
+      &__section1,
+      &__section2 {
+        flex-basis: 50%;
+      }
+    }
+
+    @media only screen and (min-width: $bp-desktop) {
+      &__section1 {
+        flex-basis: 30%;
+      }
+      &__section2 {
+        flex-basis: 70%;
+      }
+    }
+  }
+}
+
+.filters {
+  @include card-style;
+  margin: 2rem;
+  &__heading {
+    align-self: flex-start;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 1rem 1.5rem;
+  }
+
+  &__launch-year,
+  &__successful-launch,
+  &__successful-landing {
+    display: flex;
+    flex-direction: column;
+
+    &--head {
+      @include style-filter-subheading;
+    }
+
+    &--content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.satellites {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media only screen and (min-width: $bp-tablet) {
+    flex-direction: row;
+  }
+
+  @media only screen and (min-width: $bp-desktop) {
+    justify-content: flex-start;
+  }
+  &__details {
+    @include card-style;
+    margin: 2rem 2rem 0rem 2rem;
+    font-family: inherit;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    align-items: center;
+
+    @media only screen and (min-width: $bp-tablet) {
+      flex-basis: 45%;
+      margin: 2rem 1rem 0rem 1rem;
+    }
+
+    @media only screen and (min-width: $bp-desktop) {
+      flex-basis: 22%;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: inherit;
+  }
+  &__value {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+}
